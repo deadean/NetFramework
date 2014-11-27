@@ -2,29 +2,32 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using NinjectSample;
+using NinjectService;
 
 namespace NinjectSampleTests
 {
 	[TestClass]
 	public class UnitTest1
 	{
-		IKernel ninjectKernel;
-		public UnitTest1()
+		static INinjectService service = new NinjectService.NinjectService();
+
+		static UnitTest1()
 		{
-			ninjectKernel = new StandardKernel(new NinjectSample.NinjectConfigurator());
+			service.Register<ICar, Car>();
+			service.Register<IEngine, Engine>();
 		}
 
 		[TestMethod]
 		public void TestMethod1()
 		{
-			var car = ninjectKernel.Get<ICar>();
+			var car = service.Get<ICar>();
 			Assert.IsNotNull(car);
 		}
 
 		[TestMethod]
 		public void TestMethod2()
 		{
-			var car = ninjectKernel.Get<ICar>();
+			var car = service.Get<ICar>();
 
 			Assert.IsTrue(car.Start());
 		}

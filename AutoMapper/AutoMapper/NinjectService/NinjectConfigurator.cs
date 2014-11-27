@@ -9,10 +9,14 @@ namespace NinjectSample
 {
 	public class NinjectConfigurator:NinjectModule
 	{
+		public void Register<TI, TR>() where TR:TI
+		{
+			this.Bind<TI>().To<TR>();
+		}
+
 		public override void Load()
 		{
-			this.Bind<IEngine>().To<Engine>();
-			this.Bind<ICar>().To<Car>();
+			
 		}
 	}
 }
