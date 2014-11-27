@@ -30,5 +30,10 @@ namespace NinjectService
 		{
 			return ninjectKernel.Get<T>();
 		}
+
+		public IEnumerable<T> GetAll<T>()
+		{
+			return ninjectKernel.GetAll<T>();
+		}
 	}
 }

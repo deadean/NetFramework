@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Ninject;
 using NinjectSample;
 using NinjectService;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace NinjectSampleTests
 {
@@ -30,6 +32,20 @@ namespace NinjectSampleTests
 			var car = service.Get<ICar>();
 
 			Assert.IsTrue(car.Start());
+		}
+
+		[TestMethod]
+		public void TestMethod3()
+		{
+			service.Register<ICar, Car2>();
+
+			var cars = service.GetAll<ICar>();
+			var res = true;
+
+			Parallel.ForEach(cars, car => res&= car.Start());
+
+			Assert.IsFalse(res);
+			
 		}
 	}
 }

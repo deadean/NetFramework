@@ -61,7 +61,7 @@
       <Project>{2585690a-d3ba-4704-9213-e7c8c8400c85}</Project>
       <Name>NinjectSample</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NinjectService.cs\NinjectService.csproj">
+    <ProjectReference Include="..\NinjectService\NinjectService.csproj">
       <Project>{9611777b-1e38-4148-aa1d-da2a625270fa}</Project>
       <Name>NinjectService</Name>
     </ProjectReference>

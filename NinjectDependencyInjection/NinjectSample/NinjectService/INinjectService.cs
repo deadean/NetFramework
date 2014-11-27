@@ -11,5 +11,7 @@ namespace NinjectService
 		void Register<TI, TR>() where TR : TI;
 
 		T Get<T>();
+
+		IEnumerable<T> GetAll<T>();
 	}
 }

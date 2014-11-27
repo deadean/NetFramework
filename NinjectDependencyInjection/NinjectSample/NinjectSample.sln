@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectSample", "NinjectSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectSampleTests", "NinjectSampleTests\NinjectSampleTests.csproj", "{933F1E39-303F-4022-9955-133921E27E9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectService", "NinjectService.cs\NinjectService.csproj", "{9611777B-1E38-4148-AA1D-DA2A625270FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjectService", "NinjectService\NinjectService.csproj", "{9611777B-1E38-4148-AA1D-DA2A625270FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
