@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="SampleWPFGlobal.Views.ResourcesMode.Sample3ResourcesModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:helpersCommands="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel>
+            <Label x:Name="lblInfo" Content="This style is boring..." Style="{StaticResource BasicControlStyle}" Width="150"/>
+            <Button x:Name="btnTestButton" Content="Yes, but we are reusing settings!" Style="{StaticResource BasicControlStyle}" Width="250"/>
+            <Button Content="Merged resource dictionary style" Style="{StaticResource BasicControlStyle1}" Width="250"/>
+            <Button Content="OK!" Cursor="Help" Style="{StaticResource BigGreenButton}" Width="250" />
+            <Button Content="OK!" Cursor="Help" Style="{StaticResource ResourceKey=TiltButton}" Width="250" />
+            <TextBox x:Name="txtTest"/>
+            <TextBox x:Name="txtTest2" Style="{x:Null}" BorderBrush="Black" BorderThickness="5" Height="60" Width="100" Text="Ha!"/>
+        </StackPanel>
+
+        <DockPanel >
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <Label Content="Please Pick a Style for this Button" Height="50"/>
+                <ListBox Height ="80" Width ="150" Background="LightBlue" ItemsSource="{Binding Styles}" DisplayMemberPath="Name" SelectedItem="{Binding CurrrentStyle}">
+                    <!--<helpersCommands:CommandBehaviorCollection.Behaviors>
+                        <helpersCommands:BehaviorBinding 
+                            Event="SelectionChanged" 
+                            Command="{Binding SelectStyleCommand}" 
+                            CommandParameter="{Binding ElementName=btnCurrent}"
+                            />
+                    </helpersCommands:CommandBehaviorCollection.Behaviors>-->
+                </ListBox>
+            </StackPanel>
+            <Button Height="40" Width="100" Content="OK!" x:Name="btnCurrent"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,25 @@
+﻿<Window x:Class="MainProject.ViewModel.WindowsPagesRichControl.CWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wndBase="clr-namespace:MainProject.ViewModel.WindowsPagesRichControl"
+                     
+        xmlns:behaviours="clr-namespace:ViewModelLib.Behaviours;assembly=ViewModelLib"
+        Style="{DynamicResource ResourceKey=styleBaseWindow2}"
+                     
+        Title="CWindow1" Height="300" Width="300"
+        WindowStartupLocation="CenterOwner"
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MainProject;component/Resources/generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="Normal" ProgressValue="1.0" Overlay="pack://application:,,,/Resources/3.jpg">
+            
+        </TaskbarItemInfo>
+    </Window.TaskbarItemInfo>
+
+</Window>

@@ -1,0 +1,473 @@
+﻿<UserControl x:Class="MainProject.View.Sample15"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:ViewModelLib.Converters;assembly=ViewModelLib"
+             mc:Ignorable="d" 
+             
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style x:Key="lbStyle" TargetType="FrameworkElement" >
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="AnimatedScaleTransform2"></ScaleTransform>
+            <RotateTransform x:Name="AnimatedRotateTransform2"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid ShowGridLines="True"  >
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Margin Animation" Grid.Row="0" Grid.Column="0"  />
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    
+                </StackPanel.Resources>
+                <Button Width="100" Height="25" Content="StartAnimation" x:Name="btnStartAnimation">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation Storyboard.TargetName="ellipse1" Storyboard.TargetProperty="Margin" From="0,0,0,0" To="100,0,0,0" Duration="0:0:3" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Ellipse Width="100" Height="50" Fill="SteelBlue" x:Name="ellipse1">
+                    
+                </Ellipse>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Rotate Animation" Grid.Row="1" Grid.Column="0"  />
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                        <Setter Property="RenderTransformOrigin" Value="0.5,0.5"></Setter>
+                        <Setter Property="Padding" Value="20,15"></Setter>
+                        <Setter Property="Margin" Value="2"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                    
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start Rotate">
+                    <Button.RenderTransform>
+                        <RotateTransform x:Name="AnimatedRotateTransform1" CenterX="25" CenterY="50" Angle="0" />
+                    </Button.RenderTransform>
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard Name="myBeginStoryboard">
+                                <Storyboard>
+                                    <ParallelTimeline  RepeatBehavior="Forever">
+                                        <DoubleAnimation  Storyboard.TargetName="AnimatedRotateTransform1"  Storyboard.TargetProperty="(RotateTransform.Angle)" RepeatBehavior="Forever" 
+                                                              From="0" To="360" Duration="0:0:5" />
+                                        
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Two Animation in one time" Grid.Row="2" Grid.Column="0"  />
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <Button Width="150" Height="25" Content="Start Appear Animation">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline >
+                                        <DoubleAnimation  Storyboard.TargetName="AnimatedRotateTransform2"  Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                                              From="360" To="0" Duration="0:0:0.3" RepeatBehavior="4x" />
+                                        <DoubleAnimation Storyboard.TargetName="AnimatedScaleTransform2" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                                         From="0" To="1" Duration="0:0:2" AccelerationRatio="1">
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="AnimatedScaleTransform2" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                                         From="0" To="1" Duration="0:0:2" AccelerationRatio="1">
+                                        </DoubleAnimation>
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="LatoutTransform" Grid.Row="3" Grid.Column="0"  />
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                <Border>
+                    <Border.LayoutTransform>
+                        <RotateTransform Angle="45" x:Name="AnimatedLayoutTransform3" />
+                    </Border.LayoutTransform>
+                    <TextBlock Text="Hello" />
+                </Border>
+
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline  RepeatBehavior="Forever">
+                                        <DoubleAnimation  Storyboard.TargetName="AnimatedLayoutTransform3"  Storyboard.TargetProperty="(RotateTransform.Angle)" RepeatBehavior="Forever" 
+                                                              From="0" To="360" Duration="0:0:5" />
+
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Point\Color Animation" Grid.Row="4" Grid.Column="0"  />
+            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                <Ellipse x:Name="ellipse" Width="100" Height="50">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.7,0.3">
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="Blue" Offset="1" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline AutoReverse="True" RepeatBehavior="1x">
+                                        <PointAnimation Storyboard.TargetName="ellipse" Storyboard.TargetProperty="Fill.GradientOrigin" From="0.7,0.3" To="0.3,0.7" Duration="0:0:10"/>
+                                    </ParallelTimeline>
+                                    <ParallelTimeline AutoReverse="True" RepeatBehavior="1x">
+                                        <ColorAnimation Storyboard.TargetName="ellipse" Storyboard.TargetProperty="Fill.GradientStops[1].Color" To="Black" Duration="0:0:10"/>
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource ResourceKey=lbStyle}" Text="Animate copy of visual control State. Using Visual Brush Bindning instead animate an entire control" TextWrapping="WrapWithOverflow" Grid.Row="5" Grid.Column="0"  />
+            <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal">
+
+                <Rectangle Name="rectangle" Width="300" Height="100" Stroke="Red">
+                    <Rectangle.Fill>
+                        <VisualBrush Visual="{Binding ElementName=ellipse}"/>
+                    </Rectangle.Fill>
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform x:Name="AnimatedScaleTransform4"></ScaleTransform>
+                            <RotateTransform x:Name="AnimatedRotateTransform4"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                
+                <Button Width="150" Height="25" Content="Start Copy Animation">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline >
+                                        <DoubleAnimation  Storyboard.TargetName="AnimatedRotateTransform4"  Storyboard.TargetProperty="(RotateTransform.Angle)"
+                                                              From="360" To="0" Duration="0:0:0.3" RepeatBehavior="4x" />
+                                        <DoubleAnimation Storyboard.TargetName="AnimatedScaleTransform4" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" 
+                                                         From="0" To="1" Duration="0:0:2" AccelerationRatio="1">
+                                        </DoubleAnimation>
+                                        <DoubleAnimation Storyboard.TargetName="AnimatedScaleTransform4" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" 
+                                                         From="0" To="1" Duration="0:0:2" AccelerationRatio="1">
+                                        </DoubleAnimation>
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource ResourceKey=lbStyle}" Text="Blur animation" Grid.Row="6" Grid.Column="0"  />
+            <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Effect.Radius" To="0" Duration="0:0:2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="Button.MouseLeave">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="Effect.Radius" To="10" Duration="0:0:2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Width="150" Height="25" Content="Button A">
+                    <Button.Effect>
+                        <BlurEffect Radius="10" />
+                    </Button.Effect>
+                </Button>
+                <Button Width="150" Height="25" Content="Button A">
+                    <Button.Effect>
+                        <BlurEffect Radius="10" />
+                    </Button.Effect>
+                </Button>
+                <Button Width="150" Height="25" Content="Button A">
+                    <Button.Effect>
+                        <BlurEffect Radius="10" />
+                    </Button.Effect>
+                </Button>
+
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource ResourceKey=lbStyle}" Text="Begin time property. Start animation after previuos finished." TextWrapping="WrapWithOverflow" Grid.Row="7" Grid.Column="0"  />
+            <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal">
+                
+                <Button Width="150" Height="25" Content="Start" MinWidth="150">
+                    <Button.RenderTransform>
+                        <RotateTransform Angle="0" x:Name="AnimatedLayoutTransform5" />
+                    </Button.RenderTransform>
+                    
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline BeginTime="0:0:6">
+                                        <DoubleAnimation  Storyboard.TargetName="AnimatedLayoutTransform5"  Storyboard.TargetProperty="(RotateTransform.Angle)" RepeatBehavior="1x" 
+                                                              From="0" To="360" Duration="0:0:3" />
+
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>  
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Button.Click">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ParallelTimeline>
+                                                <DoubleAnimation Storyboard.TargetProperty="Width" From="150" To="200" Duration="0:0:3"/>
+                                            </ParallelTimeline>
+                                            <ParallelTimeline BeginTime="0:0:3">
+                                                <ThicknessAnimation Storyboard.TargetProperty="Margin" To="30,0,0,0" Duration="0:0:3"/>
+                                            </ParallelTimeline>
+                                            
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Resources>
+
+            </StackPanel>
+
+            <TextBlock Text="Key Frame Animations" Grid.Row="9" Grid.Column="0"  />
+            <StackPanel Grid.Row="8" Grid.Column="2" Orientation="Horizontal">
+                <Canvas Width="300" Height="300">
+                <Ellipse x:Name="ellipse2" Width="100" Height="50" Canvas.Left="0">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.7,0.3" x:Name="ellipseBrush">
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="Blue" Offset="1" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                </Canvas>
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <PointAnimationUsingKeyFrames Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="Fill.GradientOrigin" RepeatBehavior="Forever" >
+                                        <LinearPointKeyFrame Value="0.7,0.3" KeyTime="0:0:0"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.3,0.7" KeyTime="0:0:5"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.5,0.9" KeyTime="0:0:8"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.9,0.6" KeyTime="0:0:10"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.8,0.2" KeyTime="0:0:12"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.7,0.3" KeyTime="0:0:14"></LinearPointKeyFrame>
+                                    </PointAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <PointAnimationUsingKeyFrames Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="Fill.GradientOrigin" RepeatBehavior="Forever" >
+                                        <DiscretePointKeyFrame Value="0.7,0.3" KeyTime="0:0:0"></DiscretePointKeyFrame>
+                                        <DiscretePointKeyFrame Value="0.3,0.7" KeyTime="0:0:5"></DiscretePointKeyFrame>
+                                        <DiscretePointKeyFrame Value="0.5,0.9" KeyTime="0:0:8"></DiscretePointKeyFrame>
+                                        <DiscretePointKeyFrame Value="0.9,0.6" KeyTime="0:0:10"></DiscretePointKeyFrame>
+                                        <DiscretePointKeyFrame Value="0.8,0.2" KeyTime="0:0:12"></DiscretePointKeyFrame>
+                                        <DiscretePointKeyFrame Value="0.7,0.3" KeyTime="0:0:14"></DiscretePointKeyFrame>
+                                    </PointAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <PointAnimationUsingKeyFrames Storyboard.TargetName="ellipseBrush" Storyboard.TargetProperty="GradientOrigin" RepeatBehavior="Forever" >
+                                        <LinearPointKeyFrame Value="0.7,0.3" KeyTime="0:0:0"></LinearPointKeyFrame>
+                                        <EasingPointKeyFrame Value="0.3,0.7" KeyTime="0:0:5">
+                                            <EasingPointKeyFrame.EasingFunction>
+                                                <CircleEase></CircleEase>
+                                            </EasingPointKeyFrame.EasingFunction>
+                                        </EasingPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.5,0.9" KeyTime="0:0:8"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.9,0.6" KeyTime="0:0:10"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.8,0.2" KeyTime="0:0:12"></LinearPointKeyFrame>
+                                        <LinearPointKeyFrame Value="0.7,0.3" KeyTime="0:0:14"></LinearPointKeyFrame>
+                                    </PointAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="(Canvas.Left)" To="500" Duration="0:0:10">
+                                    </DoubleAnimation>
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="ellipse2" Storyboard.TargetProperty="(Canvas.Left)" >
+                                        <SplineDoubleKeyFrame KeyTime="0:0:5" Value="250" KeySpline="0.25,0 0.5,0.7"></SplineDoubleKeyFrame>
+                                        <SplineDoubleKeyFrame KeyTime="0:0:10" Value="500" KeySpline="0.25,0.8 0.2,0.4"></SplineDoubleKeyFrame>
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Text="Key Frame Animations" Grid.Row="9" Grid.Column="0"  />
+            <StackPanel Grid.Row="9" Grid.Column="2" Orientation="Horizontal">
+                <Button Width="100" Height="50" x:Name="btn1" />    
+                
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimationUsingKeyFrames Storyboard.TargetName="btn1" Storyboard.TargetProperty="Width" RepeatBehavior="Forever" >
+                                        <SplineDoubleKeyFrame Value="300" KeySpline="0.25,0.5, 0.5,0.25" KeyTime="0:0:5"/>
+                                    </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+                
+                <Button Width="100" Height="25" RenderTransformOrigin="0.5,0.5" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ThicknessAnimation Storyboard.TargetName="btn1" Storyboard.TargetProperty="Margin" To="200,0,0,0" Duration="0:0:3"/>
+                                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="btn1" Storyboard.TargetProperty="Margin" >
+                                        <SplineThicknessKeyFrame KeyTime="0:0:5" Value="200,50,50,0" KeySpline="0.25,0 0.5,0.25"/>
+                                    </ThicknessAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Text="Frame Base Adimations" Grid.Row="10" Grid.Column="0"  />
+            <StackPanel Grid.Row="10" Grid.Column="2" Orientation="Horizontal" Height="500">
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="Start" Command="{Binding StartCommand}" CommandParameter="{Binding ElementName=canvas}"/>
+                        <Button Content="Start" Command="{Binding StartCommand1}" CommandParameter="{Binding ElementName=btn12}"/>
+                        <Button Content="Stop" Command="{Binding StopCommand}"/>
+                    </StackPanel>
+                    
+                    <Canvas Width="400" Height="300" x:Name="canvas">
+                        
+                    </Canvas>
+                    
+                    <Button Content="Jahoo!!!" x:Name="btn12" Width="150" Height="50"/>
+                </Grid>
+
+            </StackPanel>
+
+            <TextBlock Text="Hard Coded Animations" Grid.Row="11" Grid.Column="0"  />
+            <StackPanel Grid.Row="11" Grid.Column="2" Orientation="Horizontal">
+                <Border BorderBrush="SteelBlue" BorderThickness="1" x:Name="bdr1">
+                </Border>
+                <Button Content="Start" Width="100" Height="25" Command="{Binding StartCommand2}" CommandParameter="{Binding ElementName=bdr1}"/>
+            </StackPanel>
+
+
+
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

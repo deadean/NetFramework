@@ -1,0 +1,202 @@
+﻿<ViewModelLib:ZoomWindow x:Class="MainProject.MainWindow"
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:localViewModel="clr-namespace:MainProject.ViewModel"
+                         
+        xmlns:Views="clr-namespace:MainProject.View"
+                         xmlns:ViewsData="clr-namespace:MainProject.View.Data"
+                         xmlns:ViewModelLib="clr-namespace:ViewModelLib;assembly=ViewModelLib" 
+                         xmlns:ViewModelLibData="clr-namespace:MainProject.ViewModel.Data"
+                         
+                         xmlns:ViewModelTest="clr-namespace:MainProject.View.TestSample" 
+                         xmlns:ViewModelTestVm="clr-namespace:MainProject.ViewModel.TestSample"
+                         
+                         xmlns:ViewModelWindowsVm="clr-namespace:MainProject.ViewModel.WindowsPagesRichControl"
+                         xmlns:ViewModelWindows="clr-namespace:MainProject.View.WindowsPagesRichControl"
+                         
+                         xmlns:ViewModelDpcumentsVm="clr-namespace:MainProject.ViewModel.Documents_And_Printing"
+                         xmlns:ViewModelDocuments="clr-namespace:MainProject.View.Documents_And_Printing"
+                         
+                         xmlns:ViewModelAdditionalTopicsVm="clr-namespace:MainProject.ViewModel.AdditionalTopics"
+                         xmlns:ViewModelAdditionalTopics="clr-namespace:MainProject.View.AdditionalTopics"
+                         
+                         xmlns:cmd="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib" 
+        Title="MainWindow" Height="750" Width="925" Initialized="ZoomWindow_Initialized">
+
+    <ViewModelLib:ZoomWindow.Resources>
+        <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
+            <Setter Property="Header" Value="{Binding Name}"></Setter>
+            <Setter Property="Command" Value="{Binding ActivateCommand}"/>
+            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+            <Setter Property="ItemsSource" Value="{Binding SubMenu}" />
+            <Setter Property="IsEnabled" Value="{Binding CanExecute}" />
+        </Style>
+    </ViewModelLib:ZoomWindow.Resources>
+
+    <ViewModelLib:ZoomWindow.DataContext>
+        <localViewModel:MainWindowVm />
+    </ViewModelLib:ZoomWindow.DataContext>
+
+    <!--<ViewModelLib:ZoomWindow.CommandBindings>
+        <cmd:DataContextCommandBinding
+            Command="ApplicationCommands.Close" Executed="Close" CanExecute="CanClose" />
+    </ViewModelLib:ZoomWindow.CommandBindings>-->
+
+    <Grid>
+        <Grid.Resources>
+
+            <DataTemplate DataType="{x:Type localViewModel:CTestVm}">
+                <Views:CTestView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample1}">
+                <Views:Sample1 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample2Vm}">
+                <Views:Sample2 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample3Vm}">
+                <Views:Sample3 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample4Vm}">
+                <Views:Sample4 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample5Vm}">
+                <Views:Sample5 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample6Vm}">
+                <Views:Sample6/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample7Vm}">
+                <Views:Sample7/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample8Vm}">
+                <Views:Sample8/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:PopUpSampleVm}">
+                <Views:PopUpSample/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample9Vm}">
+                <Views:Sample9/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample10Vm}">
+                <Views:Sample10/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample11Vm}">
+                <Views:Sample11/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type localViewModel:CSample12Vm}">
+                <Views:Sample12/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample13Vm}">
+                <Views:Sample13/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample14Vm}">
+                <Views:Sample14/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample15Vm}">
+                <Views:Sample15/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type localViewModel:CSample16Vm}">
+                <Views:Sample16/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample17Vm}">
+                <Views:CSample17/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localViewModel:CSample18Vm}">
+                <Views:CSample18/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelLibData:CSample19Vm}">
+                <ViewsData:CSample19/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelLibData:CSample20Vm}">
+                <ViewsData:CSample20/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelLibData:CSample21Vm}">
+                <ViewsData:CSample21/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelLibData:CSample22Vm}">
+                <ViewsData:CSample22/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelTestVm:ListBoxSampleVm}">
+                <ViewModelTest:ListBoxSample/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelTestVm:OnTopWindowSampleVm}">
+                <ViewModelTest:OnTopWindowSampleView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelWindowsVm:CSample23Vm}">
+                <ViewModelWindows:CSample23/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelWindowsVm:CSample24Vm}">
+                <ViewModelWindows:UserControl24/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelTestVm:CSample25Vm}">
+                <ViewModelTest:CSample25View/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelWindowsVm:CSample26Vm}">
+                <ViewModelWindows:CSample26View/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelDpcumentsVm:CSample27Vm}">
+                <ViewModelDocuments:CSample27View/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelDpcumentsVm:CSample28Vm}">
+                <ViewModelDocuments:CSample28View/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModelAdditionalTopicsVm:CSample29Vm}">
+                <ViewModelAdditionalTopics:CSample29View/>
+            </DataTemplate>
+
+
+        </Grid.Resources>
+        <Border Margin="31" CornerRadius="5" Background="#ffffffff">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="0" BlurRadius="30" Direction="0"/>
+            </Border.Effect>
+            <Grid Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Menu Grid.Row="0">
+                    <MenuItem Header="Samples" ItemsSource="{Binding MenuSamples}" ItemContainerStyle="{StaticResource ThemeMenuItemStyle}" />
+
+                </Menu>
+
+                <ContentControl Grid.Row="1" Content="{Binding CurrentItem}" />
+            </Grid>
+        </Border>
+    </Grid>
+
+</ViewModelLib:ZoomWindow>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="WpfApplicationForSampleLINQToXML.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="MainWindow_OnLoaded"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Label Content="Current Inventory" Grid.Column="0" Grid.Row="0" />
+        <TextBlock x:Name="tbInventory" TextWrapping="WrapWithOverflow" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0"/> 
+        
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Add Inventory Item">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Grid.Row="0" Content="Make"/>
+                <Label Grid.Column="0" Grid.Row="1" Content="Color"/>
+                <Label Grid.Column="0" Grid.Row="2" Content="Pet Name"/>
+                
+                <TextBox x:Name="tbMake" Grid.Column="1" Grid.Row="0"/>
+                <TextBox x:Name="tbColor" Grid.Column="1" Grid.Row="1"/>
+                <TextBox x:Name="tbPetName" Grid.Column="1" Grid.Row="2"/>
+                
+                <Button Grid.Column="1" Grid.Row="3" Content="Add" Click="ButtonBase_OnClick"/>
+                    
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Grid.Column="1" Header="Look up Colors to Make">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="Make to Look Up"/>
+                <TextBox x:Name="tbMakeLookUp" Grid.Column="1" Grid.Row="1"/>
+                <Button Grid.Column="1" Grid.Row="2" Content="Look Up Colors" Click="ButtonBase1_OnClick"/>
+                
+            </Grid>
+        </GroupBox>
+
+
+    </Grid>
+</Window>

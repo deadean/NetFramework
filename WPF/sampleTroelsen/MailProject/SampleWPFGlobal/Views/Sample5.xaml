@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="SampleWPFGlobal.Views.Sample5"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localView="clr-namespace:SampleWPFGlobal.ViewModels"
+             xmlns:Views="clr-namespace:SampleWPFGlobal.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TabControl ItemsSource="{Binding TabItems}">
+            <TabControl.Resources>
+                <DataTemplate DataType="{x:Type localView:Sample5Tab1Vm}">
+                    <Views:Sample5Tab1 />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type localView:Sample5Tab2Vm}">
+                    <Views:Sample5Tab2 />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type localView:Sample5Tab3Vm}">
+                    <Views:Sample5Tab3 />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type localView:Sample5Tab4Vm}">
+                    <Views:Sample5Tab4 />
+                </DataTemplate>
+            </TabControl.Resources>
+
+            <TabControl.ItemTemplate>
+                <!-- this is the header template-->
+                <DataTemplate>
+                    <TextBlock
+                    Text="{Binding Header}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <!-- this is the body of the TabItem template-->
+                <DataTemplate>
+                    <ContentControl Content="{Binding CurrentItem}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+
+        </TabControl>
+        
+    </Grid>
+</UserControl>

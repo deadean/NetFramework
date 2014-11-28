@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="MainProject.View.Sample1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="1" Width="100" Height="50" Content="Hello" >
+            <Button.Foreground>
+                <x:Static Member="SystemColors.ActiveCaptionBrush"></x:Static>
+            </Button.Foreground>
+        </Button>
+        
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" ShowGridLines="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition SharedSizeGroup="TestGroup" Width="50" />
+                <ColumnDefinition SharedSizeGroup="TestGroup" Width="100" />
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+                
+
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.IsSharedSizeScope="True" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+        </Grid>
+        
+        <Border BorderThickness="2" BorderBrush="SteelBlue" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <UniformGrid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Rows="2" Columns="2">
+            <Button>Top Left</Button>
+            <Button>Top Right</Button>
+            <Button>Bottom Left</Button>
+        </UniformGrid>
+
+        <Canvas Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+            <Button Canvas.Left="60" Canvas.Top="80" Canvas.ZIndex="1" Width="50" Height="50"> (60,80)</Button>
+            <Button Canvas.Left="70" Canvas.Top="100" Width="100" Height="50"> (70,120)</Button>
+        </Canvas>
+
+
+    </Grid>
+</UserControl>

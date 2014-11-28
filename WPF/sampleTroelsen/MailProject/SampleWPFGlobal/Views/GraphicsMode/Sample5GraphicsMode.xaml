@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="SampleWPFGlobal.Views.GraphicsMode.Sample5GraphicsMode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:helpersCommands="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    
+    <Grid>
+        <helpersCommands:CommandBehaviorCollection.Behaviors>
+            <helpersCommands:BehaviorBinding 
+                        Event="Loaded" 
+                        Command="{Binding LoadedCommand}" 
+                         />
+        </helpersCommands:CommandBehaviorCollection.Behaviors>
+        
+        <StackPanel Background="AliceBlue" Name="myStackPanel">
+            <Image Height="80" Source="{Binding SourceImage}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

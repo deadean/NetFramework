@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MainProject.Controls.CustomColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             
+             xmlns:cmd="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib" 
+             HorizontalAlignment="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},Path=HorizontalAlignment}"
+             >
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" >
+            <Slider MinWidth="100" Name="sliderRed" Minimum="0" Maximum="255" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},Path=Red}"></Slider>
+            <Slider MinWidth="100" Name="sliderGreen" Minimum="0" Maximum="255" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},Path=Green}"></Slider>
+            <Slider MinWidth="100" Name="sliderBlue" Minimum="0" Maximum="255" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},Path=Blue}"></Slider>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button MinWidth="100" Command="Undo" CommandTarget="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Content="Undo Command"/>
+            <Button MinWidth="100" Command="Redo" CommandTarget="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Content="Redo Command"/>
+            <Button MinWidth="100" Command="cmd:DataCommands.Requery" CommandTarget="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Content="RoutedUICommand"/>
+            
+        </StackPanel>
+
+        <Rectangle Grid.Column="1" Grid.RowSpan="3" Width="50" Stroke="Black" StrokeThickness="1">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}},Path=Color}">
+                </SolidColorBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</UserControl>

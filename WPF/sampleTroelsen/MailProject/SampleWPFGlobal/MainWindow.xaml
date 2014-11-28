@@ -1,0 +1,114 @@
+﻿<Window x:Class="SampleWPFGlobal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:localView="clr-namespace:SampleWPFGlobal.ViewModels"
+        xmlns:Views="clr-namespace:SampleWPFGlobal.Views"
+        xmlns:GraphicsView="clr-namespace:SampleWPFGlobal.Views.GraphicsMode"
+        xmlns:GraphicsViews="clr-namespace:SampleWPFGlobal.ViewModels.GraphicsMode"
+        
+        xmlns:ResourcesViews="clr-namespace:SampleWPFGlobal.Views.ResourcesMode"
+        xmlns:ResourcesVm="clr-namespace:SampleWPFGlobal.ViewModels.ResourcesMode"
+        
+        xmlns:DependencyViews="clr-namespace:SampleWPFGlobal.Views.DependencyMode"
+        xmlns:DependencyVm="clr-namespace:SampleWPFGlobal.ViewModels.DependencyMode"
+        
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="450" Width="625">
+    <Window.DataContext>
+        <localView:MainWindowVm />
+    </Window.DataContext>
+    
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type localView:Sample1Vm}">
+                <Views:Sample1 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localView:Sample2Vm}">
+                <Views:Sample2 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localView:Sample3Vm}">
+                <Views:Sample3 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localView:Sample4Vm}">
+                <Views:Sample4 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localView:Sample5Vm}">
+                <Views:Sample5 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type localView:Sample6Vm}">
+                <Views:Sample6 />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type GraphicsViews:Sample1GraphicsModeVm}">
+                <GraphicsView:Sample1GraphicsMode />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type GraphicsViews:Sample2GraphicsModeVm}">
+                <GraphicsView:Sample2GraphicsMode />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type GraphicsViews:Sample3GraphicsModeVm}">
+                <GraphicsView:Sample3GraphicsMode />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type GraphicsViews:Sample4GraphicsModeVm}">
+                <GraphicsView:Sample4GraphicsMode />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type GraphicsViews:Sample5GraphicsModeVm}">
+                <GraphicsView:Sample5GraphicsMode />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ResourcesVm:Sample1ResourcesModeVm}">
+                <ResourcesViews:Sample1ResourcesModeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ResourcesVm:Sample2ResourcesModeVm}">
+                <ResourcesViews:Sample2ResourcesModeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ResourcesVm:Sample3ResourcesModeVm}">
+                <ResourcesViews:Sample3ResourcesModeView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ResourcesVm:Sample4ResourcesModeVm}">
+                <Views:Window1/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type DependencyVm:Sample1DependencyModeVm}">
+                <DependencyViews:Sample1DependencyModeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type DependencyVm:Sample2DependencyModeVm}">
+                <DependencyViews:Sample2DependencyModeView/>
+            </DataTemplate>
+
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Menu Grid.Row="0">
+
+            <Menu.Resources>
+                <Style x:Key="ThemeMenuItemStyle" TargetType="MenuItem">
+                    <Setter Property="Header" Value="{Binding Name}"></Setter>
+                    <Setter Property="Command" Value="{Binding ActivateCommand}"/>
+                    <Setter Property="ItemsSource" Value="{Binding SubMenu}" />
+                </Style>
+            </Menu.Resources>
+
+            <MenuItem Header="Samples" ItemsSource="{Binding MenuSamples}" ItemContainerStyle="{StaticResource ThemeMenuItemStyle}" />
+
+        </Menu>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentItem}" />
+
+    </Grid>
+</Window>

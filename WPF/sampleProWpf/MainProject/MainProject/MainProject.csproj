@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADA6880B-C479-4B80-BF18-1A669B6367B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MainProject</RootNamespace>
+    <AssemblyName>MainProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\acmyk\OneDrive\Документы\Books\Programming Language\C#\_On Reading\sampleProWpf\MainProject\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C8146D378EF36CB2EA1D1F298C3AE4606C576764</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MainProject_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PresentationFramework.Aero2" />
+    <Reference Include="PresentationFramework.AeroLite" />
+    <Reference Include="PresentationFramework.Classic" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="PresentationFramework.Royale" />
+    <Reference Include="RibbonControlsLibrary, Version=3.5.41019.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.x86.1.0.88.0\lib\net40\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.89.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.88\lib\net45\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controls\BestFlipControl.cs" />
+    <Compile Include="Controls\CustomColorPicker.xaml.cs">
+      <DependentUpon>CustomColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CustomColorPickerVersion1.cs" />
+    <Compile Include="Controls\CustomControlBehavior.cs" />
+    <Compile Include="Controls\FlipPanel.cs" />
+    <Compile Include="Controls\WrapBreakPanel.cs" />
+    <Compile Include="Resources\CCustomResources.cs" />
+    <Compile Include="Resources\CDependencyControl.xaml.cs">
+      <DependentUpon>CDependencyControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CDependencyInheritControl.xaml.cs">
+      <DependentUpon>CDependencyInheritControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CRibbonWindow.xaml.cs">
+      <DependentUpon>CRibbonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\XAMLExtension.cs" />
+    <Compile Include="ViewModel\AdditionalTopics\CSample29Vm.cs" />
+    <Compile Include="ViewModel\CNotifItem.cs" />
+    <Compile Include="ViewModel\Data\CSample21Vm.cs" />
+    <Compile Include="ViewModel\Data\CSample20Vm.cs" />
+    <Compile Include="ViewModel\Data\CSample19Vm.cs" />
+    <Compile Include="ViewModel\CSample18Vm.cs" />
+    <Compile Include="ViewModel\CSample17Vm.cs" />
+    <Compile Include="ViewModel\CSample1.cs" />
+    <Compile Include="ViewModel\CSample10Vm.cs" />
+    <Compile Include="ViewModel\CSample11Vm.cs" />
+    <Compile Include="ViewModel\CSample12Vm.cs" />
+    <Compile Include="ViewModel\CSample13Vm.cs" />
+    <Compile Include="ViewModel\CSample14Vm.cs" />
+    <Compile Include="ViewModel\CSample15Vm.cs" />
+    <Compile Include="ViewModel\CSample16Vm.cs" />
+    <Compile Include="ViewModel\CSample2Vm.cs" />
+    <Compile Include="ViewModel\CSample3Vm.cs" />
+    <Compile Include="ViewModel\CSample4Vm.cs" />
+    <Compile Include="ViewModel\CSample5Vm.cs" />
+    <Compile Include="ViewModel\CSample6Vm.cs" />
+    <Compile Include="ViewModel\CSample7Vm.cs" />
+    <Compile Include="ViewModel\CSample8Vm.cs" />
+    <Compile Include="ViewModel\CSample9Vm.cs" />
+    <Compile Include="ViewModel\CTestVm.cs" />
+    <Compile Include="ViewModel\Data\CSample22Vm.cs" />
+    <Compile Include="ViewModel\Documents And Printing\CSample27Vm.cs" />
+    <Compile Include="ViewModel\Documents And Printing\CSample28Vm.cs" />
+    <Compile Include="ViewModel\MainWindowVm.cs" />
+    <Compile Include="ViewModel\PopUpSampleVm.cs" />
+    <Compile Include="ViewModel\TestSample\CSample25Vm.cs" />
+    <Compile Include="ViewModel\TestSample\ListBoxSampleVm.cs" />
+    <Compile Include="ViewModel\TestSample\OnTopWindowSampleVm.cs" />
+    <Compile Include="ViewModel\TypeComparer.cs" />
+    <Compile Include="Resources\Theme3.xaml.cs">
+      <DependentUpon>Resources\Theme3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\WindowsPagesRichControl\CSample23Vm.cs" />
+    <Compile Include="ViewModel\WindowsPagesRichControl\CSample24Vm.cs" />
+    <Compile Include="ViewModel\WindowsPagesRichControl\CSample26Vm.cs" />
+    <Compile Include="ViewModel\WindowsPagesRichControl\CWindow2.xaml.cs">
+      <DependentUpon>CWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\WindowsPagesRichControl\CWindow1.xaml.cs">
+      <DependentUpon>CWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\WindowsPagesRichControl\CWindowBase.cs" />
+    <Compile Include="ViewModel\WindowsPagesRichControl\CWindowBaseVm.cs" />
+    <Compile Include="ViewModel\WindowsPagesRichControl\ListSelectionJournalEntry.cs" />
+    <Compile Include="View\AdditionalTopics\CSample29View.xaml.cs">
+      <DependentUpon>CSample29View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdditionalTopics\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdditionalTopics\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CSample17.xaml.cs">
+      <DependentUpon>CSample17.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CSample18.xaml.cs">
+      <DependentUpon>CSample18.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\CProductDataTemplateSelector.cs" />
+    <Compile Include="View\Data\CProductStyleSelector.cs" />
+    <Compile Include="View\Data\CSample19.xaml.cs">
+      <DependentUpon>CSample19.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\CSample20.xaml.cs">
+      <DependentUpon>CSample20.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\CSample21.xaml.cs">
+      <DependentUpon>CSample21.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CTestView.xaml.cs">
+      <DependentUpon>CTestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\CSample22.xaml.cs">
+      <DependentUpon>CSample22.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Data\INode.cs" />
+    <Compile Include="View\Data\Node.cs" />
+    <Compile Include="View\Data\NodeProduct.cs" />
+    <Compile Include="View\Data\TileView.cs" />
+    <Compile Include="View\Data\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Documents And Printing\CSample27View.xaml.cs">
+      <DependentUpon>CSample27View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Documents And Printing\CSample28View.xaml.cs">
+      <DependentUpon>CSample28View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DraggablePopup.xaml.cs">
+      <DependentUpon>DraggablePopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PopUpControl.xaml.cs">
+      <DependentUpon>PopUpControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PopUpSample.xaml.cs">
+      <DependentUpon>PopUpSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample1.xaml.cs">
+      <DependentUpon>Sample1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample10.xaml.cs">
+      <DependentUpon>Sample10.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample11.xaml.cs">
+      <DependentUpon>Sample11.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample12.xaml.cs">
+      <DependentUpon>Sample12.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample13.xaml.cs">
+      <DependentUpon>Sample13.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample14.xaml.cs">
+      <DependentUpon>Sample14.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample15.xaml.cs">
+      <DependentUpon>Sample15.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample16.xaml.cs">
+      <DependentUpon>Sample16.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample2.xaml.cs">
+      <DependentUpon>Sample2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample3.xaml.cs">
+      <DependentUpon>Sample3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample4.xaml.cs">
+      <DependentUpon>Sample4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample5.xaml.cs">
+      <DependentUpon>Sample5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample6.xaml.cs">
+      <DependentUpon>Sample6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample7.xaml.cs">
+      <DependentUpon>Sample7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample8.xaml.cs">
+      <DependentUpon>Sample8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sample9.xaml.cs">
+      <DependentUpon>Sample9.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestSample\CSample25View.xaml.cs">
+      <DependentUpon>CSample25View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestSample\FlowDocument\Attached.cs" />
+    <Compile Include="View\TestSample\FlowDocument\BindableRun.cs" />
+    <Compile Include="View\TestSample\FlowDocument\BlockTemplateContent.cs" />
+    <Compile Include="View\TestSample\FlowDocument\Fragment.cs" />
+    <Compile Include="View\TestSample\FlowDocument\Helpers.cs" />
+    <Compile Include="View\TestSample\FlowDocument\ItemsContent.cs" />
+    <Compile Include="View\TestSample\ListBoxSample.xaml.cs">
+      <DependentUpon>ListBoxSample.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestSample\OnTopWindowSampleView.xaml.cs">
+      <DependentUpon>OnTopWindowSampleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Window2.xaml.cs">
+      <DependentUpon>Window2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\CSample23.xaml.cs">
+      <DependentUpon>CSample23.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\CSample26View.xaml.cs">
+      <DependentUpon>CSample26View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\PageFunction1.xaml.cs">
+      <DependentUpon>PageFunction1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowsPagesRichControl\UserControl24.xaml.cs">
+      <DependentUpon>UserControl24.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\CustomColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CDependencyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CDependencyInheritControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CRibbonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Royale.NormalColor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Theme1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Theme2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Theme3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewModel\WindowsPagesRichControl\CWindow2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ViewModel\WindowsPagesRichControl\CWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AdditionalTopics\CSample29View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CSample17.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CSample18.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Data\CSample19.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Data\CSample20.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Data\CSample21.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CTestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Data\CSample22.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Data\UserControl1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents And Printing\CSample27View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Documents And Printing\CSample28View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DraggablePopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PopUpControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PopUpSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample11.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample12.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample13.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample14.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample15.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample16.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sample9.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestSample\CSample25View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestSample\ListBoxSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestSample\OnTopWindowSampleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Window2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\CSample23.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\CSample26View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\Page2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\PageFunction1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowsPagesRichControl\UserControl24.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="MainProject_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="Resources\splash.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\3DTools\3DTools.csproj">
+      <Project>{5f603892-de40-4246-a969-1c6717afe35d}</Project>
+      <Name>3DTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{daa64f3e-5dc7-421e-af0f-7a3b0796cb7e}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModelLib\ViewModelLib.csproj">
+      <Project>{94e09330-43d3-4340-ae9d-46eba4b2d5ac}</Project>
+      <Name>ViewModelLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\store.xml" />
+    <Resource Include="Resources\images\plus.png" />
+    <Resource Include="Resources\images\save.png" />
+    <EmbeddedResource Include="Resources\adios.wav" />
+    <Resource Include="Resources\file.mp3" />
+    <Resource Include="Resources\3.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="x64\SQLite.Interop.dll" />
+    <Content Include="x86\SQLite.Interop.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

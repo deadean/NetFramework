@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="MainProject.View.TestSample.CSample25View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:ViewModelLib.Converters;assembly=ViewModelLib"
+             xmlns:cm="clr-namespace:System.ComponentModel;assembly=System"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style x:Key="lbStyle" TargetType="FrameworkElement" >
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" >
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="50" />
+        </Style>
+        <cm:BackgroundWorker x:Key="backgroundWorker"
+                             WorkerReportsProgress="True"
+                             WorkerSupportsCancellation="True"
+                             DoWork="BackgroundWorker_DoWork"
+                             ProgressChanged="BackgroundWorker_ProgressChanged"
+                             RunWorkerCompleted="BackgroundWorker_RunWorkerCompleted"
+                             />
+    </UserControl.Resources>
+
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="AnimatedScaleTransform2"></ScaleTransform>
+            <RotateTransform x:Name="AnimatedRotateTransform2"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid ShowGridLines="True"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Use async methot to change label" Grid.Row="0" Grid.Column="0"  />
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Start" Command="{Binding Path=AsyncChangeLabelsCommand}"/>
+                <TextBlock Text="{Binding Path=Text1}"/>
+                <TextBlock Text="{Binding Path=Text2}"/>
+            </StackPanel>
+
+            <TextBlock Text="Use waitHandle to wait for all threads" Grid.Row="1" Grid.Column="0"  />
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Start" Command="{Binding Path=WaitForAllThreadsCommand}"/>
+                <TextBlock Text="{Binding Path=Text3}"/>
+                <TextBlock Text="{Binding Path=Text4}"/>
+                <TextBlock Text="{Binding Path=TextInfo34}"/>
+            </StackPanel>
+
+            <TextBlock Text="Wrong executed code in another thread with other dispatcher" Grid.Row="2" Grid.Column="0"  />
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Start" Command="{Binding Path=Command1}"/>
+                <TextBlock Text="{Binding Path=Text5}"/>
+            </StackPanel>
+
+            <TextBlock Text="Wrong executed code in another thread with other dispatcher" Grid.Row="3" Grid.Column="0"  />
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Start" Click="Button_Click"/>
+                <TextBlock Text="Text5" x:Name="ctr1"/>
+            </StackPanel>
+
+            <TextBlock Text="Execute changes of control in current dispatcher" Grid.Row="4" Grid.Column="0"  />
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Start" Click="Button_Click_1"/>
+                <TextBlock Text="Text6" x:Name="ctr2"/>
+            </StackPanel>
+
+            <TextBlock Text="Execute backgroundWorker" Grid.Row="5" Grid.Column="0"  />
+            <StackPanel Grid.Row="5" Grid.Column="1" >
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Start" Click="Button_Click_2"/>
+                    <Button Content="Cancel" Click="Button_Click_3"/>
+                    <TextBlock x:Name="ctr3"/>
+                </StackPanel>
+                
+                <ProgressBar x:Name="ctr4" Width="400" Height="25"/>
+            </StackPanel>
+
+            <TextBlock Text="Execute backgroundWorker" Grid.Row="6" Grid.Column="0"  />
+            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

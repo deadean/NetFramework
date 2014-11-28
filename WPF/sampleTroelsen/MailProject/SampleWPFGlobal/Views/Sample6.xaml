@@ -1,0 +1,71 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:helpers="clr-namespace:ViewModelLib.Behaviours;assembly=ViewModelLib"
+             xmlns:helpersCommands="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib"
+             xmlns:Converters="clr-namespace:ViewModelLib.Converters;assembly=ViewModelLib" x:Name="userControl" x:Class="SampleWPFGlobal.Views.Sample6"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Converters:ConvertDoubleToInt x:Key="ConvertDoubleToInt"/>
+        <Style x:Key="borderStyle" TargetType="{x:Type Border}">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30" />
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style x:Key="scrollBarStyle" TargetType="{x:Type ScrollBar}">
+            <Setter Property="Orientation" Value="Vertical"/>
+            <Setter Property="Width" Value="50" />
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="Maximum" Value="255"/>
+            <Setter Property="LargeChange" Value="1"/>
+            <Setter Property="SmallChange" Value="1"/>
+            <Setter Property="ViewportSize" Value="20" />
+
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Background="{Binding BackGround}" />
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" Style="{StaticResource ResourceKey=borderStyle}" Background="Lime" />
+            <ScrollBar x:Name="scrollBar" Grid.Row="1" Grid.Column="0" Style="{StaticResource ResourceKey=scrollBarStyle}" Value="{Binding GreenValue}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="{Binding Value, Converter={StaticResource ConvertDoubleToInt}, ElementName=scrollBar}" />
+
+            <Border Grid.Row="0" Grid.Column="1" Style="{StaticResource ResourceKey=borderStyle}" Background="Red" />
+            <ScrollBar x:Name="scrollBar1" Grid.Row="1" Grid.Column="1" Style="{StaticResource ResourceKey=scrollBarStyle}" Value="{Binding RedValue}"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Value, Converter={StaticResource ConvertDoubleToInt}, ElementName=scrollBar1}" />
+
+            <Border Grid.Row="0" Grid.Column="2" Style="{StaticResource ResourceKey=borderStyle}" Background="Blue" />
+            <ScrollBar x:Name="scrollBar2" Grid.Row="1" Grid.Column="2" Style="{StaticResource ResourceKey=scrollBarStyle}" Value="{Binding BlueValue}"/>
+            <Label Grid.Row="2" Grid.Column="2" Content="{Binding Value, Converter={StaticResource ConvertDoubleToInt}, ElementName=scrollBar2}" />
+
+        </Grid>
+
+    </Grid>
+</UserControl>

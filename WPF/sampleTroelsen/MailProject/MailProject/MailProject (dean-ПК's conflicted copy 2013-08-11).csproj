@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C249EA8-3D80-46DD-94F5-0FFF41544C2D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MailProject</RootNamespace>
+    <AssemblyName>MailProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADO.NET.Part1\ADO.NET.Part1.csproj">
+      <Project>{bec655c2-b6a4-4f83-b814-7a154cea8f15}</Project>
+      <Name>ADO.NET.Part1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ADO.NET.Part2\ADONETPart2.csproj">
+      <Project>{5054e009-bb1d-46c3-8bde-e78b814c67cb}</Project>
+      <Name>ADONETPart2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AdvancedLanguage\AdvancedLanguage.csproj">
+      <Project>{da11e3b3-6301-4762-a7ee-02dbe85672b1}</Project>
+      <Name>AdvancedLanguage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessesAppDomainsObjectContext\ProcessesAppDomainsObjectContext.csproj">
+      <Project>{b2c7ca10-9a49-423d-80e6-24315ec978e9}</Project>
+      <Name>ProcessesAppDomainsObjectContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleAssemblyManager\SampleAssemblyManager.csproj">
+      <Project>{53d23c0d-5b9a-4103-b786-84d5ebe06aa7}</Project>
+      <Name>SampleAssemblyManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDelegate\SampleDelegate.csproj">
+      <Project>{9712e04d-537e-4188-9eba-2ddec7126989}</Project>
+      <Name>SampleDelegate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleDynamicLanguage\SampleDynamicLanguage.csproj">
+      <Project>{2552b529-1cf3-4c38-8c4c-23063922802f}</Project>
+      <Name>SampleDynamicLanguage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleEntityFrameWork\SampleEntityFrameWork.csproj">
+      <Project>{3268600c-6ad9-451a-bd42-387069fd9c42}</Project>
+      <Name>SampleEntityFrameWork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleLINQManager\SampleLINQManager.csproj">
+      <Project>{8e8e6848-a21b-4807-b554-c34e9478ba4c}</Project>
+      <Name>SampleLINQManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleLINQToXML\SampleLINQToXML.csproj">
+      <Project>{e8fd268e-4dd0-4089-8d69-78e8bd65ec1c}</Project>
+      <Name>SampleLINQToXML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleMultithreadedParallelAsync\SampleMultithreadedParallelAsync.csproj">
+      <Project>{db879de4-f56f-4bff-9652-98af7a7be933}</Project>
+      <Name>SampleMultithreadedParallelAsync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleTypeReflectionLateBinding\SampleTypeReflectionLateBinding.csproj">
+      <Project>{4549a47f-73c0-414f-a6be-a0b6111cb5a7}</Project>
+      <Name>SampleTypeReflectionLateBinding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SampleWCF\SampleWCF.csproj">
+      <Project>{ae7e2c89-a2b2-41d0-b860-2c1e35259385}</Project>
+      <Name>SampleWCF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="InputPicture\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

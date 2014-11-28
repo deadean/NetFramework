@@ -1,0 +1,14 @@
+﻿<FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:localView="clr-namespace:SampleWPFGlobal.ViewModels"
+              ColumnWidth="400" FontSize="14" FontFamily="Georgia">
+    <!--<FlowDocument.DataContext>
+        <localView:SampleFlowDocumentVm/>
+    </FlowDocument.DataContext>-->
+    <Section Foreground = "Yellow" Background = "Black">
+        <Paragraph FontSize = "20">
+            <Run Text="{Binding Text}"/>
+        </Paragraph>
+    </Section>
+    <List/>
+    <Paragraph/>
+</FlowDocument>

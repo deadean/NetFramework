@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="MainProject.View.CSample17"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:ViewModelLib.Converters;assembly=ViewModelLib"
+             xmlns:viewmodels="clr-namespace:MainProject.ViewModel"
+             xmlns:controls="clr-namespace:MainProject.Controls"
+             mc:Ignorable="d" 
+             xmlns:behaviours="clr-namespace:ViewModelLib.Behaviours;assembly=ViewModelLib"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style x:Key="lbStyle" TargetType="FrameworkElement" >
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="AnimatedScaleTransform2"></ScaleTransform>
+            <RotateTransform x:Name="AnimatedRotateTransform2"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid ShowGridLines="True"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Using UserControl : CustomColorPicker" Grid.Row="0" Grid.Column="0" />
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                <TextBlock Text="Value changed by Routed Event" />
+                <TextBlock x:Name="txtColorChanged" />
+                <controls:CustomColorPicker
+                    x:Name="ctrColorPicker"
+                    ColorChanged="ctrColorPicker_ColorChanged"
+                    Color="{Binding CurrentColorInstance,Mode=TwoWay}"
+                    controls:CustomControlBehavior.ColorChanged="{Binding ColorChangedCommand}"
+                    HorizontalContentAlignment="Left"
+                    controls:CustomColorPicker.OnMouseEnter="{Binding AttachedPropertyCommand}"
+                    />
+                
+
+                <TextBlock Text="Value changed by Routed Event binded to Command" />
+                <TextBlock Text="{Binding CurrentColor}" />
+                
+                <TextBlock Text="Value changed by ColorPicker Attached Property binded to Command" />
+                <TextBlock Text="{Binding AttachedValue}"  />
+            </StackPanel>
+
+            <TextBlock Text="Using UserControl : CustomColorPickerVersion1" Grid.Row="1" Grid.Column="0"  />
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical">
+                <controls:CustomColorPickerVersion1 HorizontalContentAlignment="Left" Color="Red" />
+            </StackPanel>
+
+            <TextBlock Text="FlipPanel : User Control.VisualStateManager used" Grid.Row="2" Grid.Column="0"  />
+            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                <controls:FlipPanel x:Name="panel" BorderBrush="DarkOrange" BorderThickness="3" CornerRadius="4" Margin="10">
+                    <controls:FlipPanel.FronContent>
+                        <StackPanel Margin="6">
+                            <TextBlock TextWrapping="Wrap" Margin="3" FontSize="16" Foreground="DarkOrange">This is the front side of the FlipPanel.</TextBlock>
+                            <Button Margin="3" Padding="3" Content="Button One"></Button>
+                            <Button Margin="3" Padding="3" Content="Button Two"></Button>
+                            <Button Margin="3" Padding="3" Content="Button Three"></Button>
+                            <Button Margin="3" Padding="3" Content="Button Four"></Button>
+                        </StackPanel>
+                    </controls:FlipPanel.FronContent>
+                    <controls:FlipPanel.BackContent>
+                        <Grid Margin="6">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock TextWrapping="Wrap" Margin="3" FontSize="16" Foreground="DarkMagenta">This is the back side of the FlipPanel.</TextBlock>
+                            <Button Grid.Row="2" Margin="3" Padding="10" Content="Flip Back to Front"
+                                    HorizontalAlignment="Center" VerticalAlignment="Center" Click="cmdFlip_Click"></Button>
+                        </Grid>
+                    </controls:FlipPanel.BackContent>
+                </controls:FlipPanel>
+            </StackPanel>
+
+            <TextBlock Text="BestFlipControl" Grid.Row="4" Grid.Column="0"  />
+            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                <controls:BestFlipControl Margin="10" Height="100" Width="200">
+                    <controls:BestFlipControl.BackContent>
+                        <StackPanel Width="150" Height="50" Background="Red"/>
+                    </controls:BestFlipControl.BackContent>
+                    <controls:BestFlipControl.FronContent>
+                        <StackPanel Width="100" Height="70" Background="bLUE"/>
+                    </controls:BestFlipControl.FronContent>
+                </controls:BestFlipControl>
+            </StackPanel>
+            
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Sample Animation" Grid.Row="3" Grid.Column="0"  />
+            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Vertical">
+                <Border Width="100" Height="50" BorderBrush="Red" BorderThickness="1">
+                    <Grid Width="100" Height="50" ShowGridLines="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Width="100" Height="50" x:Name="stp" Background="Red" Grid.Row="0">
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Button Width="100" Height="25" Content="Start">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.Click" >
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <ParallelTimeline>
+                                        <DoubleAnimation  Storyboard.TargetName="stp"  Storyboard.TargetProperty="Height" 
+                                                              From="50" To="0" Duration="0:0:3" />
+
+                                    </ParallelTimeline>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                </Button>
+
+
+            </StackPanel>
+
+            <!--<TextBlock Text="New WrapBreakPanel" Grid.Row="4" Grid.Column="0"  />
+            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="3"></Setter>
+                        <Setter Property="Padding" Value="3"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Padding="5" Background="LightGray"> Content above the WrapBreakPanel.
+                </TextBlock>
+                <controls:WrapBreakPanel>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                    <Button  FontWeight="Bold">
+                        Button with Break
+                    </Button>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                    <Button>No Break Here</Button>
+                </controls:WrapBreakPanel>
+                <TextBlock Padding="5" Background="LightGray"> Content below the WrapBreakPanel.
+                </TextBlock>
+            </StackPanel>-->
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

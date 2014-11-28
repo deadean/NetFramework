@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MainProject.View.PopUpSample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:MainProject.View"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <StackPanel>
+        <StackPanel>
+            <Button Width="100" Height="25" Content="Run Pop Up" Command="{Binding RunPopUp}" />
+            <Button Width="100" Height="25" Content="Add New Item" Command="{Binding AddItem}" />
+            <Button Width="100" Height="25" Content="Start Timer" Command="{Binding StartTimer}" />
+        </StackPanel>
+        <local:PopUpControl DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl},Path=DataContext}" />
+        <StackPanel>
+            <Button Content="Start Dragable PopUp" Width="100" Height="25" Command="{Binding Path=Command1}"/>
+            <Popup StaysOpen="True" Placement="AbsolutePoint" PopupAnimation="Slide" x:Name="popUp"
+                   AllowsTransparency="True" Width="150" Height="150">
+                <Ellipse Width="100" Height="100" Fill="Lime">
+                    
+                </Ellipse>
+            </Popup>
+        </StackPanel>
+        <StackPanel>
+            <Button Content="Start Dragable PopUp" Width="100" Height="25" Command="{Binding Path=Command1}"/>
+            <local:DraggablePopup IsOpen="{Binding Path=IsOpen1}" Width="100" Height="100" AllowsTransparency="True"
+                />
+        </StackPanel>
+
+    </StackPanel>
+</UserControl>

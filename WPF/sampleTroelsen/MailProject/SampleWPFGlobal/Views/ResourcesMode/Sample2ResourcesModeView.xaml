@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="SampleWPFGlobal.Views.ResourcesMode.Sample2ResourcesModeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:helpersCommands="clr-namespace:ViewModelLib.Commands;assembly=ViewModelLib"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Height="50" Width="100" Content="I Spin!" >
+            <helpersCommands:CommandBehaviorCollection.Behaviors>
+                <helpersCommands:BehaviorBinding 
+                        Event="MouseEnter" 
+                        Command="{Binding MouseEnterCommand}" 
+                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Button}}" />
+            </helpersCommands:CommandBehaviorCollection.Behaviors>
+        </Button>
+        
+        <ComboBox Grid.Column="1" Grid.Row="0" Width="100" Height="30" ItemsSource="{Binding ButtonAnimations}" SelectedItem="{Binding CurrentAnimation}" DisplayMemberPath="Name" />
+
+        <Label Content = "Interesting..." Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <Label.Triggers>
+                <EventTrigger RoutedEvent = "Control.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard TargetProperty = "FontSize">
+                                <DoubleAnimation From = "12" To = "150" Duration = "0:0:4" RepeatBehavior = "Forever"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Label.Triggers>
+        </Label>
+
+        <Button Name="myButton" Height="40" FontSize="16pt" FontFamily="Verdana" Width = "100" Grid.Row="2">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <StringAnimationUsingKeyFrames RepeatBehavior = "Forever" Storyboard.TargetName="myButton" Storyboard.TargetProperty="Content" Duration="0:0:3">
+                                <DiscreteStringKeyFrame Value="" KeyTime="0:0:0" />
+                                <DiscreteStringKeyFrame Value="O" KeyTime="0:0:1" />
+                                <DiscreteStringKeyFrame Value="OK" KeyTime="0:0:1.5" />
+                                <DiscreteStringKeyFrame Value="OK!" KeyTime="0:0:2" />
+                            </StringAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</UserControl>

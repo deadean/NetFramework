@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Products>
+  <Product>
+    <ID>355</ID>
+    <CategoryID>16</CategoryID>
+    <Number>RU007</Number>
+    <ModelName>Rain Racer 2000</ModelName>
+    <ProductImage>image.gif</ProductImage>
+    <UnitCost>1499.99</UnitCost>
+    <Description>Looks like an ordinary bumbershoot ... </Description>
+  </Product>
+  <Product>
+    <ID>356</ID>
+    <CategoryID>20</CategoryID>
+    <Number>STKY1</Number>
+    <ModelName>Edible Tape</ModelName>
+    <ProductImage>image.gif</ProductImage>
+    <UnitCost>3.99</UnitCost>
+    <Description>The latest in personal survival gear ... </Description>
+  </Product>
+</Products>

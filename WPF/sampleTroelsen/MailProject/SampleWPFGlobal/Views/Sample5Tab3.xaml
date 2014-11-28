@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="SampleWPFGlobal.Views.Sample5Tab3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel Width="250" DataContext="{Binding ElementName=mySB}">
+        <Label Content="Move the scroll bar to see the current value"/>
+        <ScrollBar x:Name="mySB" Orientation="Horizontal" Height="30" Minimum = "1" Maximum = "100" LargeChange="1" SmallChange="1"/>
+        <Label x:Name="labelSBThumb" Height="30" BorderBrush="Blue" BorderThickness="2" Content = "{Binding Value, ElementName=mySB}"/>
+        <Button Content="Click" Height="200" FontSize = "{Binding Path=Value}"/>
+    </StackPanel>
+</UserControl>

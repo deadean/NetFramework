@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="MainProject.exe" version="1.0.0.0" publicKeyToken="57ff6cba047cf628" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="MainProject" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="MainProject.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="System.Windows.Controls.Ribbon" version="4.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="3DTools.dll" size="68096">
+      <assemblyIdentity name="3DTools" version="1.0.5338.22785" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JxtlYGYWnjntM5Hi9fBU8AzAlWO0FsSquF8ZnWAXYcM=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.dll" size="5051040">
+      <assemblyIdentity name="EntityFramework" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>0lWnSwoffm0FYGmILDo2YTTXzoU9METMVWhTqd6G/ac=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EntityFramework.SqlServer.dll" size="580768">
+      <assemblyIdentity name="EntityFramework.SqlServer" version="6.0.0.0" publicKeyToken="B77A5C561934E089" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>+uSrPPQoxDIu2CAcUYr4zQAtdRNcFuxUslvlzC2dHYY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MainProject.exe" size="6431232">
+      <assemblyIdentity name="MainProject" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>imYByiAf60K9tmQuZrXqzSUoj1qy5SVzM8N3IFoTg6M=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Model.dll" size="17920">
+      <assemblyIdentity name="Model" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>X19jHVrVHVLQQfZZ5/3HKB8jfpCTMm0aJZCFpKYoyMc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RibbonControlsLibrary.dll" size="778616">
+      <assemblyIdentity name="RibbonControlsLibrary" version="3.5.41019.1" publicKeyToken="31BF3856AD364E35" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iHWJ7teyMOV8XF7YwAH5oiIcsobuTdeHnw9vnekXGbY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.dll" size="1092608">
+      <assemblyIdentity name="System.Data.SQLite" version="1.0.88.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>JCYz3atlF3dt6GB7EcWo/GA2tF5l//2f1BWGb+riehc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="System.Data.SQLite.Linq.dll" size="173056">
+      <assemblyIdentity name="System.Data.SQLite.Linq" version="2.0.88.0" publicKeyToken="DB937BC2D44FF139" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>YYxXzByktp6pvlRtBat6eFAJb0/IO6DpjPdhdQ8i8yQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ViewModelLib.dll" size="80384">
+      <assemblyIdentity name="ViewModelLib" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>S9vTTjvM+lbPlZ6d6zF4gy2pzx4r7nutST5QTDVuyeE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="MainProject.exe.config" size="1605">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/fu/oKEx6p2Tdh3CWHNLTmVYqIqwfEvc3MCMSFp3aYk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x64\SQLite.Interop.dll" size="1113088">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>BDgfDckiwA9GXSglW1dSDIX1KpYnpz5JDGoT+fIAdCE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="x86\SQLite.Interop.dll" size="953856">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vJEZS8uvuBkkG0JsAVeCwA3lBl+G2cz/vVKLQH3KN4w=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=LIZDEVNTD\acmyk" issuerKeyHash="c8804d13f27211b6ba4e2bb70b4793f3728b7ec2" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>44zQU6eXIxy8oTDA6ZL3Yqr1R+DwHD/QbrdX3ri7QEg=</DigestValue></Reference></SignedInfo><SignatureValue>Wlxg6GNqciluGG6wDdpk8IK3heMNVBgMkz33fgkhK6XXoEeGoTp3Sh6HZ1zow6uRID15Qw377U3NZdfKFtQ038OKJj82Oso2ohJEmb0Yxc3nE7yi0idSZ3CG3CSyror22hiaVshD7tMfqP/0pp81ZA5P+8LiX5q11o42X/zXDdQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>2lpAXdwOFgEaXiyLZh/XbhqZ+iJeY+VKMYgU7+aoFwZJI4r72OCcGSAhOegzrDwua4NOknCt1w4eqzasVSoSB2YFBwuunuYGMI+2i+4iWjcgWwKXVhyxK+sN0KnV5dvXzXrRm/IqnmxA8trt+d26nIGgTSonGo2z2Tiz1EdzYKM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="4840bbb8de57b76ed03f1cf0e047f5aa62f792e9c030a1bc1c2397a753d08ce3" Description="" Url=""><as:assemblyIdentity name="MainProject.exe" version="1.0.0.0" publicKeyToken="57ff6cba047cf628" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=LIZDEVNTD\acmyk</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>ahRDbfhwu2AuIlHbohxJ/JcjRBzXAgUpMoOUtI/upY8=</DigestValue></Reference></SignedInfo><SignatureValue>QdDLF4uPb51ba7wyufg6yMLQSAUajwpdnI3AEBh7d5E3xA/AT6HFwxotAIxGhh/DtGdQYnpApamH4RkFjzfksfYcHwjMta0KttCtrG8SXtr1MKdBHzSCjnWkIoT97kJ42C27hENkR2wVM/0Ig8xGLPAfOzac+ZBLX/uZQJt/OIc=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>2lpAXdwOFgEaXiyLZh/XbhqZ+iJeY+VKMYgU7+aoFwZJI4r72OCcGSAhOegzrDwua4NOknCt1w4eqzasVSoSB2YFBwuunuYGMI+2i+4iWjcgWwKXVhyxK+sN0KnV5dvXzXrRm/IqnmxA8trt+d26nIGgTSonGo2z2Tiz1EdzYKM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQFb+VPxPC/otOZt++VspCRTANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4ATABJAFoARABFAFYATgBUAEQAXABhAGMAbQB5AGswHhcNMTQwODI2MTQ1MTQ3WhcNMTUwODI2MjA1MTQ3WjApMScwJQYDVQQDHh4ATABJAFoARABFAFYATgBUAEQAXABhAGMAbQB5AGswgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBANpaQF3cDhYBGl4si2Yf124amfoiXmPlSjGIFO/mqBcGSSOK+9jgnBkgITnoM6w8LmuDTpJwrdcOHqs2rFUqEgdmBQcLrp7mBjCPtovuIlo3IFsCl1YcsSvrDdCp1eXb18160ZvyKp5sQPLa7fndupyBoE0qJxqNs9k4s9RHc2CjAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAlE2T7Vkixn5097ZkrZMriqEzzJkGDThfGtvKHYnkKCjmRfWF3j3FI8WEuTQDKUsWLzb6yO5X8/Vm81pbcoG4CqDmgbqsS0ElAiQA2w2/F/Olyiu3l3z7DFsOQXYd9LqgnMLCv5vJ9h9/I4wqyfCMbfRwgPGZDOtbUmJck3TGeGs=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

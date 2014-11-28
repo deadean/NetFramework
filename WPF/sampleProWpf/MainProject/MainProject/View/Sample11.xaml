@@ -1,0 +1,180 @@
+﻿<UserControl x:Class="MainProject.View.Sample11"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="lbStyle" TargetType="FrameworkElement" >
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+
+        <GeometryGroup x:Key="Geometry">
+            <RectangleGeometry Rect="0 ,0 100 ,100"></RectangleGeometry>
+            <EllipseGeometry Center="50, 50" RadiusX="35" RadiusY="25"></EllipseGeometry>
+        </GeometryGroup>
+
+        <GeometryGroup x:Key="Geometry1">
+            <EllipseGeometry Center="50, 50" RadiusX="35" RadiusY="25"></EllipseGeometry>
+        </GeometryGroup>
+
+
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid ShowGridLines="True" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="0" Grid.Column="0" />
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Path Fill="Yellow" Stroke="Blue">
+                    <Path.Data>
+                        <RectangleGeometry Rect="0,0 100,50"></RectangleGeometry>
+                    </Path.Data>
+                </Path>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="1" Grid.Column="0" />
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <Path Fill="LightBlue" Stroke="DarkBlue">
+                    <Path.Data>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0,100,100"/>
+                            <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                        </GeometryGroup>
+                    </Path.Data>
+                </Path>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="2" Grid.Column="0" />
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <Path Fill="Lime" Stroke="Red" Data="{StaticResource ResourceKey=Geometry}"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="3" Grid.Column="0" />
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                <Path Fill="Yellow" Stroke="Blue" Margin="5">
+                    <Path.Data>
+                        <CombinedGeometry GeometryCombineMode="Union">
+                            <CombinedGeometry.Geometry1>
+                                <RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+                            </CombinedGeometry.Geometry1>
+                            <CombinedGeometry.Geometry2>
+                                <EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"></EllipseGeometry>
+                            </CombinedGeometry.Geometry2>
+                        </CombinedGeometry>
+                    </Path.Data>
+                </Path>
+
+                <Path Fill="Yellow" Stroke="Blue">
+                    <Path.Data>
+                        <CombinedGeometry GeometryCombineMode="Union">
+                            <CombinedGeometry.Geometry1>
+                                <CombinedGeometry GeometryCombineMode="Exclude">
+                                    <CombinedGeometry.Geometry1>
+                                        <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"></EllipseGeometry>
+                                    </CombinedGeometry.Geometry1>
+                                    <CombinedGeometry.Geometry2>
+                                        <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"></EllipseGeometry>
+                                    </CombinedGeometry.Geometry2>
+                                </CombinedGeometry>
+                            </CombinedGeometry.Geometry1>
+                            <CombinedGeometry.Geometry2>
+                                <RectangleGeometry Rect="44,5 10,90">
+                                    <RectangleGeometry.Transform>
+                                        <RotateTransform Angle="45" CenterX="50" CenterY="50"></RotateTransform>
+                                    </RectangleGeometry.Transform>
+                                </RectangleGeometry>
+                            </CombinedGeometry.Geometry2>
+                        </CombinedGeometry>
+                    </Path.Data>
+                </Path>
+
+                <Path Stroke="Blue">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure IsClosed="True" StartPoint="10,100">
+                                <LineSegment Point="100,100" />
+                                <LineSegment Point="100,50" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+
+                <Path Stroke="Blue" StrokeThickness="3">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathFigure IsClosed="False" StartPoint="10,100" >
+                                <ArcSegment Point="250,150" Size="200,20" IsLargeArc="True" />
+                            </PathFigure>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+                
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="4" Grid.Column="0" />
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <Canvas>
+                    <Path Stroke="Blue" StrokeThickness="5" Canvas.Top="20">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure StartPoint="10,10">
+                                    <BezierSegment Point1="130,30" Point2="40,140"
+Point3="150,150"></BezierSegment>
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                    <Path Stroke="Green" StrokeThickness="2" StrokeDashArray="5 2" Canvas.Top="20">
+                        <Path.Data>
+                            <GeometryGroup>
+                                <LineGeometry StartPoint="10,10" EndPoint="130,30"></LineGeometry>
+                                <LineGeometry StartPoint="40,140" EndPoint="150,150"></LineGeometry>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                    <Path Fill="Red" Stroke="Red" StrokeThickness="8" Canvas.Top="20">
+                        <Path.Data>
+                            <GeometryGroup>
+                                <EllipseGeometry Center="130,30"></EllipseGeometry>
+                                <EllipseGeometry Center="40,140"></EllipseGeometry>
+                            </GeometryGroup>
+                        </Path.Data>
+                    </Path>
+                </Canvas>
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="" Grid.Row="5" Grid.Column="0" />
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+            </StackPanel>
+
+            <Label Style="{StaticResource ResourceKey=lbStyle}" Content="Path Data" Grid.Row="6" Grid.Column="0" />
+            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                <Path Stroke="Blue" Data="M 10,100 L 100,100 L 100,50 Z"/>
+                <Button Clip="{StaticResource Geometry1}">A button</Button>
+                
+            </StackPanel>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

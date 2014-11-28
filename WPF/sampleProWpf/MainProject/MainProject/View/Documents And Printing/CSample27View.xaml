@@ -1,0 +1,232 @@
+﻿<UserControl x:Class="MainProject.View.Documents_And_Printing.CSample27View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:ViewModelLib.Converters;assembly=ViewModelLib"
+             xmlns:annot="clr-namespace:System.Windows.Annotations;assembly=PresentationFramework"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <Style x:Key="lbStyle" TargetType="FrameworkElement" >
+            <Setter Property="Width" Value="200" />
+            <Setter Property="Height" Value="80" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="WrapWithOverflow"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" >
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="50" />
+        </Style>
+    </UserControl.Resources>
+
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <ScaleTransform x:Name="AnimatedScaleTransform2"></ScaleTransform>
+            <RotateTransform x:Name="AnimatedRotateTransform2"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid ShowGridLines="True"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Simple Flow Document" Grid.Row="0" Grid.Column="0"  />
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer IsToolBarVisible="True">
+                    <FlowDocument>
+                        <Paragraph>Using Paragraph Tag</Paragraph>
+                        <Paragraph>
+                            <Run>Using Run Tag1 inside Paragraph</Run>
+                            <Run>Using Run Tag2 inside Paragraph</Run>
+                        </Paragraph>
+                        <Paragraph xml:space="preserve">Using Paragraph Tag   with all defined spaces in xaml</Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Flow Document without copy feature" Grid.Row="1" Grid.Column="0"  />
+            <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer IsSelectionEnabled="False">
+                    <FlowDocument>
+                        <Paragraph>Using Paragraph Tag</Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple List" Grid.Row="2" Grid.Column="0"  />
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer>
+                    <FlowDocument>
+                        <List MarkerStyle="Decimal">
+                            <ListItem>
+                                <Paragraph>List item based on paragraph</Paragraph>
+                            </ListItem>
+                            <ListItem>
+                                <Paragraph>List item based on paragraph</Paragraph>
+                            </ListItem>
+                        </List>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple Table" Grid.Row="3" Grid.Column="0"  />
+            <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer>
+                    <FlowDocument>
+                        <Table>
+                            <Table.Columns>
+                                <TableColumn Width="*"/>
+                                <TableColumn Width="3*"/>
+                            </Table.Columns>
+                            <TableRowGroup Paragraph.TextAlignment ="Center">
+                                <TableRow FontWeight="Bold">
+                                    <TableCell>
+                                        <Paragraph>Item 1</Paragraph>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Paragraph>Item 2</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow>
+                                    <TableCell>
+                                        <Paragraph>Item 1</Paragraph>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Paragraph>Item 2</Paragraph>
+                                    </TableCell>
+                                </TableRow>
+                            </TableRowGroup>
+                        </Table>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple Section. Div alternative element" Grid.Row="4" Grid.Column="0"  />
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer>
+                    <FlowDocument>
+                        <Section FontFamily="Palatino" Background="LightSkyBlue">
+                            <Paragraph>Item 1</Paragraph>
+                            <Paragraph>Item 2</Paragraph>
+                            <Paragraph>
+                                <Run>Item 3.1</Run>
+                                <Run>Item 3.2</Run>
+                            </Paragraph>
+                        </Section>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple BlockUIContainer" Grid.Row="5" Grid.Column="0"  />
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer>
+                    <FlowDocument>
+                        <Section FontFamily="Palatino" Background="LightSkyBlue">
+                            <Paragraph>Item 1</Paragraph>
+                            <Paragraph>Item 2</Paragraph>
+                            <Paragraph>
+                                <Run>Item 3.1</Run>
+                                <Run>Item 3.2</Run>
+                            </Paragraph>
+                            <BlockUIContainer>
+                                <Button Content="Click" Command="{Binding Path=Command1}"/>
+                            </BlockUIContainer>
+                        </Section>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple Floater Tag" Grid.Row="6" Grid.Column="0"  />
+            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal">
+                <FlowDocumentScrollViewer>
+                    <FlowDocument>
+                        <Paragraph>
+                            Item 1 start
+                            <Floater>
+                                <Paragraph>Several Floater Block</Paragraph>
+                            </Floater>
+                            Item 1 end
+                        </Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simplae FlowDocumentPageViewer" Grid.Row="7" Grid.Column="0"  />
+            <StackPanel Grid.Row="7" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Load current XAML" Command="{Binding Path=Command2}"/>
+                <FlowDocumentPageViewer Document="{Binding Path=Document}">
+                </FlowDocumentPageViewer>
+            </StackPanel>
+
+            <TextBlock Text="Simple RichTextBox" Grid.Row="8" Grid.Column="0"  />
+            <StackPanel Grid.Row="8" Grid.Column="1" Orientation="Horizontal">
+                <Button Command="{Binding Path=Command3}">Load Document</Button>
+                <RichTextBox x:Name="ctr1" Width="200" IsDocumentEnabled="True">
+                </RichTextBox>
+            </StackPanel>
+
+            <TextBlock Text="Simple BlockUIContainer inside FlowDocument in RichTextBox" Grid.Row="9" Grid.Column="0"  />
+            <StackPanel Grid.Row="9" Grid.Column="1" Orientation="Horizontal">
+                <RichTextBox Width="200" IsDocumentEnabled="True">
+                    <FlowDocument>
+                        <BlockUIContainer>
+                            <StackPanel>
+                                <Button Content="Button 1"/>
+                                <Button Content="Button 2"/>
+                                <Button Content="Button 3"/>
+                                <Button Content="Button 4"/>
+                            </StackPanel>
+                        </BlockUIContainer>
+                    </FlowDocument>
+                </RichTextBox>
+            </StackPanel>
+
+            <TextBlock Text="" Grid.Row="10" Grid.Column="0"  />
+            <StackPanel Grid.Row="10" Grid.Column="1" Orientation="Horizontal">
+                <Button Content="Create text sticky note" Command="annot:AnnotationService.CreateTextStickyNoteCommand" CommandTarget="{Binding ElementName=ctr2}"/>
+                <Button Content="Delete text sticky note" Command="annot:AnnotationService.DeleteStickyNotesCommand" CommandTarget="{Binding ElementName=ctr2}"/>
+                <Button Content="HighLight Text" Command="annot:AnnotationService.CreateHighlightCommand" CommandTarget="{Binding ElementName=ctr2}">
+                    <Button.CommandParameter>
+                        <SolidColorBrush Color="Red" />
+                    </Button.CommandParameter>
+                </Button>
+                <FlowDocumentScrollViewer x:Name="ctr2">
+                    <FlowDocument>
+                        <Paragraph>Item 1</Paragraph>
+                        <Paragraph>Item 2</Paragraph>
+                        <Paragraph>Item 3</Paragraph>
+                    </FlowDocument>
+                </FlowDocumentScrollViewer>
+                <TextBox x:Name="ctr3">hello</TextBox>
+            </StackPanel>
+
+            <TextBlock Text="" Grid.Row="11" Grid.Column="0"  />
+            <StackPanel Grid.Row="11" Grid.Column="1" Orientation="Horizontal">
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

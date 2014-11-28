@@ -1,0 +1,32 @@
+﻿<wndBase:CWindowBase x:Class="MainProject.ViewModel.WindowsPagesRichControl.CWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wndBase="clr-namespace:MainProject.ViewModel.WindowsPagesRichControl"
+                     
+        xmlns:behaviours="clr-namespace:ViewModelLib.Behaviours;assembly=ViewModelLib"
+        Style="{DynamicResource ResourceKey=styleBaseWindow}"
+                     
+        Title="CWindow1" Height="300" Width="300"
+        WindowStartupLocation="CenterOwner"
+        >
+    <wndBase:CWindowBase.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/MainProject;component/Resources/generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+    </wndBase:CWindowBase.Resources>
+    
+    <wndBase:CWindowBase.TaskbarItemInfo>
+        <TaskbarItemInfo ProgressState="Normal" ProgressValue="0.5" Overlay="pack://application:,,,/Resources/2.jpg" >
+            <TaskbarItemInfo.ThumbButtonInfos>
+                <ThumbButtonInfo Description="Play" />
+                <ThumbButtonInfo Description="Stop"/>
+            </TaskbarItemInfo.ThumbButtonInfos>
+        </TaskbarItemInfo>
+    </wndBase:CWindowBase.TaskbarItemInfo>
+    
+    <TextBlock Text="Hello"/>
+
+</wndBase:CWindowBase>

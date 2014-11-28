@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9EA7791-3A70-44F5-AC74-E770B0A1AB1C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SampleWPFGlobal</RootNamespace>
+    <AssemblyName>SampleWPFGlobal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedLanguage">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Dropbox\Public\Documents\Books\Programming Language\C#\On Reading\sampleTroelsen\MailProject\MailProject\bin\Debug\Libraries\AdvancedLanguage.dll</HintPath>
+    </Reference>
+    <Reference Include="Monads">
+      <HintPath>..\..\..\..\..\..\..\..\..\..\Downloads\monads.net-master\monads.net-master\Src\Monads\bin\Debug\Monads.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ViewModels\CColor.cs" />
+    <Compile Include="ViewModels\CMenuItemVm.cs" />
+    <Compile Include="ViewModels\CTabItem.cs" />
+    <Compile Include="ViewModels\DependencyMode\Sample1DependencyModeVm.cs" />
+    <Compile Include="ViewModels\DependencyMode\Sample2DependencyModeVm.cs" />
+    <Compile Include="ViewModels\DependencyMode\SampleControl.xaml.cs">
+      <DependentUpon>SampleControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\GraphicsMode\Sample1GraphicsModeVm.cs" />
+    <Compile Include="ViewModels\GraphicsMode\Sample2GraphicsModeVm.cs" />
+    <Compile Include="ViewModels\GraphicsMode\Sample3GraphicsModeVm.cs" />
+    <Compile Include="ViewModels\GraphicsMode\Sample4GraphicsModeVm.cs" />
+    <Compile Include="ViewModels\GraphicsMode\Sample5GraphicsModeVm.cs" />
+    <Compile Include="ViewModels\ResourcesMode\CAnimation.cs" />
+    <Compile Include="ViewModels\ResourcesMode\CStyle.cs" />
+    <Compile Include="ViewModels\ResourcesMode\Sample1ResourcesModeVm.cs" />
+    <Compile Include="ViewModels\ResourcesMode\Sample2ResourcesModeVm.cs" />
+    <Compile Include="ViewModels\ResourcesMode\Sample3ResourcesModeVm.cs" />
+    <Compile Include="ViewModels\ResourcesMode\Sample4ResourcesModeVm.cs" />
+    <Compile Include="ViewModels\Sample5Tab1Vm.cs" />
+    <Compile Include="ViewModels\MainWindowVm.cs" />
+    <Compile Include="ViewModels\Sample1Vm.cs" />
+    <Compile Include="ViewModels\Sample2Vm.cs" />
+    <Compile Include="ViewModels\Sample3Vm.cs" />
+    <Compile Include="ViewModels\Sample4Vm.cs" />
+    <Compile Include="ViewModels\Sample5Tab2Vm.cs" />
+    <Compile Include="ViewModels\Sample5Tab3Vm.cs" />
+    <Compile Include="ViewModels\Sample5Tab4Vm.cs" />
+    <Compile Include="ViewModels\Sample5Vm.cs" />
+    <Compile Include="ViewModels\Sample6Vm.cs" />
+    <Compile Include="ViewModels\SampleFlowDocumentVm.cs" />
+    <Compile Include="Views\DependencyMode\Sample1DependencyModeView.xaml.cs">
+      <DependentUpon>Sample1DependencyModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DependencyMode\Sample2DependencyModeView.xaml.cs">
+      <DependentUpon>Sample2DependencyModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsMode\Sample1GraphicsMode.xaml.cs">
+      <DependentUpon>Sample1GraphicsMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsMode\Sample2GraphicsMode.xaml.cs">
+      <DependentUpon>Sample2GraphicsMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsMode\Sample3GraphicsMode.xaml.cs">
+      <DependentUpon>Sample3GraphicsMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsMode\Sample4GraphicsMode.xaml.cs">
+      <DependentUpon>Sample4GraphicsMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphicsMode\Sample5GraphicsMode.xaml.cs">
+      <DependentUpon>Sample5GraphicsMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResourcesMode\Sample1ResourcesModeView.xaml.cs">
+      <DependentUpon>Sample1ResourcesModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResourcesMode\Sample2ResourcesModeView.xaml.cs">
+      <DependentUpon>Sample2ResourcesModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResourcesMode\Sample3ResourcesModeView.xaml.cs">
+      <DependentUpon>Sample3ResourcesModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample1.xaml.cs">
+      <DependentUpon>Sample1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample2.xaml.cs">
+      <DependentUpon>Sample2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample3.xaml.cs">
+      <DependentUpon>Sample3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample4.xaml.cs">
+      <DependentUpon>Sample4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample5.xaml.cs">
+      <DependentUpon>Sample5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample5Tab1.xaml.cs">
+      <DependentUpon>Sample5Tab1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample5Tab2.xaml.cs">
+      <DependentUpon>Sample5Tab2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample5Tab3.xaml.cs">
+      <DependentUpon>Sample5Tab3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample5Tab4.xaml.cs">
+      <DependentUpon>Sample5Tab4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sample6.xaml.cs">
+      <DependentUpon>Sample6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SampleFlowDocument.xaml.cs">
+      <DependentUpon>SampleFlowDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ViewModels\DependencyMode\SampleControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DependencyMode\Sample1DependencyModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DependencyMode\Sample2DependencyModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Views\FlowDocument1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
+    <Page Include="Resources\Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsMode\beer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\GraphicsMode\Sample1GraphicsMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsMode\Sample2GraphicsMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsMode\Sample3GraphicsMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsMode\Sample4GraphicsMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GraphicsMode\Sample5GraphicsMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResourcesMode\Sample1ResourcesModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResourcesMode\Sample2ResourcesModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResourcesMode\Sample3ResourcesModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample5Tab1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample5Tab2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample5Tab3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample5Tab4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sample6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SampleFlowDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ADO.NET.Part1\ADO.NET.Part1.csproj">
+      <Project>{bec655c2-b6a4-4f83-b814-7a154cea8f15}</Project>
+      <Name>ADO.NET.Part1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AutoLotDAL\AutoLotDAL.csproj">
+      <Project>{ed636673-e562-4676-9f72-d190d3e16429}</Project>
+      <Name>AutoLotDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ViewModelLib\ViewModelLib.csproj">
+      <Project>{f94a5ca2-94b6-453f-bdc1-003e1a301c47}</Project>
+      <Name>ViewModelLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
