@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageView", "ImageView.csproj", "{50F3EEAB-0A2F-4BA2-8979-2836D2415B55}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50F3EEAB-0A2F-4BA2-8979-2836D2415B55}.Debug|x86.ActiveCfg = Debug|x86
+		{50F3EEAB-0A2F-4BA2-8979-2836D2415B55}.Debug|x86.Build.0 = Debug|x86
+		{50F3EEAB-0A2F-4BA2-8979-2836D2415B55}.Release|x86.ActiveCfg = Release|x86
+		{50F3EEAB-0A2F-4BA2-8979-2836D2415B55}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
