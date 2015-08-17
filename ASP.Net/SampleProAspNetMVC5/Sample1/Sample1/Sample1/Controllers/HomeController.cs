@@ -16,6 +16,7 @@ namespace Sample1.Controllers
 			return View();
 		}
 
+
 		//public ActionResult Index()
 		//{
 		//	return View();
