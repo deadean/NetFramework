@@ -26,7 +26,12 @@ namespace Sample1.Controllers
 		[HttpPost]
 		public ViewResult RsvpForm(GuestResponse response)
 		{
-			return View("Thanks", response);
+			if (ModelState.IsValid)
+			{
+				return View("Thanks", response);
+			}
+
+			return View();
 		}
 
 

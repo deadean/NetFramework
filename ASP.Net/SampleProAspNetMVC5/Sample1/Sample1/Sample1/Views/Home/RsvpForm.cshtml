@@ -1,7 +1,7 @@
 ﻿@model Sample1.Models.GuestResponse
 
 @{
-    Layout = null;
+  Layout = null;
 }
 
 <!DOCTYPE html>
@@ -13,22 +13,24 @@
 </head>
 <body>
     <div>
-        @using (Html.BeginForm()) 
-        {        
-            <p>Your name: @Html.TextBoxFor(x => x.Name) </p>        
-            <p>Your email: @Html.TextBoxFor(x => x.Email)</p>        
+        @using (Html.BeginForm())
+        {
+        @Html.ValidationSummary()
+        <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
+            <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
             <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
-            <p> Will you attend?            
-                @Html.DropDownListFor(x => x.WillAttend, new[] 
-           {                
-               new SelectListItem() {Text = "Yes, I'll be there",                    
-                   Value = bool.TrueString},                
-                   new SelectListItem() {Text = "No, I can't come",                    
-                       Value = bool.FalseString}            
-           }, "Choose an option")        
-        </p>        
+            <p>
+                Will you attend?
+                @Html.DropDownListFor(x => x.WillAttend, new[]
+                     {
+                             new SelectListItem() {Text = "Yes, I'll be there",
+                                     Value = bool.TrueString},
+                             new SelectListItem() {Text = "No, I can't come",
+                                     Value = bool.FalseString}
+                     }, "Choose an option")
+            </p>
             <input type="submit" value="Submit RSVP" />
         }
-</div>
+    </div>
 </body>
 </html>
