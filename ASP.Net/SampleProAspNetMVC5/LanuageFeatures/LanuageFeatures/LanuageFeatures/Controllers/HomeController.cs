@@ -9,10 +9,19 @@ namespace LanuageFeatures.Controllers
 {
 	public class HomeController : Controller
 	{
-		// GET: Home
-		public string Index()
+
+		private Product modProduct = new Product()
 		{
-			return "Navigate to URL to Show an example";
+			ProductID = 1,
+			Description = "A boat for one person",
+			Name = "Kayak",
+			Price = 275M,
+			Category = "Watersports"
+		};
+		// GET: Home
+		public ActionResult Index()
+		{
+			return View(modProduct);
 		}
 
 		public ViewResult AutoProperty()
