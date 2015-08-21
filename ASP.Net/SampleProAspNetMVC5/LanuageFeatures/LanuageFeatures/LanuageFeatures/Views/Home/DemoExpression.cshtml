@@ -1,0 +1,38 @@
+﻿@model LanuageFeatures.Models.Product
+
+@{
+  ViewBag.Title = "DemoExpression";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DemoExpression</title>
+</head>
+<body>
+    <div>
+        <div>Name : @Model.Name</div>
+        <div>Price : @Model.Price</div>
+        @switch ((int)@ViewBag.ProductCount)
+        {
+            case 0:
+            @:Out of stock
+                break;
+            case 1:
+            <b>Low Stock(@ViewBag.ProductCount)</b>
+                break;
+            default:
+            @ViewBag.ProductCount;
+                break;
+
+        }
+        <div>Stock Level : </div>
+        <div>Discount:<input type="checkbox" checked="@ViewBag.ApplyDiscount"/></div>
+        <div>Express:<input type="checkbox" checked="@ViewBag.ExpressShip"/></div>
+        <div>Sipplier:<input type="checkbox" checked="@ViewBag.Supplier"/></div>
+    </div>
+
+</body>
+</html>
