@@ -10,8 +10,20 @@ namespace SportsStore.WebUI.Controllers
 {
 	public class ProductController : Controller
 	{
-		
+
+		#region Fields
+
 		private IProductRepository modProductRepository;
+
+		#endregion
+
+		#region Properties
+
+		public int PageSize { get; set; }
+
+		#endregion
+
+		#region Ctor
 
 		public ProductController(IProductRepository productRepo)
 		{
@@ -19,25 +31,43 @@ namespace SportsStore.WebUI.Controllers
 			PageSize = 4;
 		}
 
+		#endregion
+
+		#region Public Methods
+
 		public ActionResult Index()
 		{
 			return View();
 		}
 
-		public ViewResult List(int page = 1)
+		public ViewResult List(string category, int page = 1)
 		{
 			var products = modProductRepository.Products.ToList();
+			products = String.IsNullOrWhiteSpace(category)
+				? products
+        : products.Where(x => x.Category == null || x.Category == category).ToList();
+
 			ProductsListViewModel vm = new ProductsListViewModel
 			{
 				Products = products.OrderBy(x => x.ProductID)
 														.Skip((page - 1) * PageSize)
 														.Take(PageSize),
-				PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = products.Count }
+				PagingInfo = new PagingInfo { CurrentPage = page, ItemsPerPage = PageSize, TotalItems = products.Count() },
+				CurrentCategory = category
 			};
-			
-      return View(vm);
+
+			return View(vm);
 		}
 
-		public int PageSize { get; set; }
+		#endregion
+
+		#region Private Methods
+
+		#endregion
+
+		#region Protected Methods
+
+		#endregion
+
 	}
 }
