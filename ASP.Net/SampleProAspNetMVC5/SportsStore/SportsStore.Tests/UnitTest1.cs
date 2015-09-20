@@ -13,22 +13,11 @@ using SportsStore.WebUI.HtmlHelpers;
 namespace SportsStore.Tests
 {
 	[TestClass]
-	public class UnitTest1
+	public class UnitTest1:BaseTest
 	{
-		private readonly Mock<IProductRepository> mock;
     public UnitTest1()
 		{
-			mock = new Mock<IProductRepository>();
-			mock.Setup(m => m.Products).Returns(
-				new Product[]
-				{
-					new Product { ProductID=1, Name="Product1", Category = "Cat1"},
-					new Product { ProductID=2, Name="Product2", Category = "Cat2"},
-					new Product { ProductID=3, Name="Product3", Category = "Cat1"},
-					new Product { ProductID=4, Name="Product4", Category = "Cat2"},
-					new Product { ProductID=5, Name="Product5", Category = "Cat3"}
-				}
-			);
+			
 		}
 
 		[TestMethod]
@@ -104,6 +93,26 @@ namespace SportsStore.Tests
 			string result = controller.Menu(categoryToSelect).ViewBag.SelectedCategory;
 
 			Assert.AreEqual(result, categoryToSelect);
+		}
+
+		[TestMethod]
+		public void Generate_Category_Specififc_Product_Count()
+		{
+			ProductController controller = new ProductController(mock.Object);
+			controller.PageSize = 3;
+			ProductsListViewModel vm =
+				(ProductsListViewModel)controller.List("Cat1").Model;
+			ProductsListViewModel vm1 =
+				(ProductsListViewModel)controller.List("Cat2").Model;
+			ProductsListViewModel vm2 =
+				(ProductsListViewModel)controller.List("Cat3").Model;
+			ProductsListViewModel vm3 =
+				(ProductsListViewModel)controller.List(null).Model;
+
+			Assert.AreEqual(vm.PagingInfo.TotalItems, 2);
+			Assert.AreEqual(vm1.PagingInfo.TotalItems, 2);
+			Assert.AreEqual(vm2.PagingInfo.TotalItems, 1);
+			Assert.AreEqual(vm3.PagingInfo.TotalItems, 5);
 		}
 	}
 }
