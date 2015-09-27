@@ -14,6 +14,7 @@ namespace SportsStore.Tests
 	public abstract class BaseTest
 	{
 		protected readonly Mock<IProductRepository> mock;
+		protected readonly Mock<IOrderProcessor> mockOrderProcessor;
 
 		protected BaseTest()
 		{
@@ -29,6 +30,8 @@ namespace SportsStore.Tests
 					new Product { ProductID=5, Name="Product5", Category = "Cat3", Price = 300M}
 				}
 			);
-		}
+
+			mockOrderProcessor = new Mock<IOrderProcessor>();
+    }
 	}
 }

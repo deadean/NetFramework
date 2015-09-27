@@ -15,6 +15,7 @@ namespace SportsStore.WebUI.Controllers
 		#region Fields
 
 		private readonly IProductRepository modProductRepository;
+		private readonly IOrderProcessor modOrderProcessor;
 
 		#endregion
 
@@ -24,44 +25,74 @@ namespace SportsStore.WebUI.Controllers
 
 		#region Ctor
 
-		public CartController(IProductRepository repo)
+		public CartController(IProductRepository repo, IOrderProcessor orderProcessor)
 		{
 			modProductRepository = repo;
+			modOrderProcessor = orderProcessor;
 		}
 
 		#endregion
 
 		#region Public Methods
 
-		public RedirectToRouteResult AddToCart(int productId, string returnUrl)
+		[HttpPost]
+		public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+		{
+			if(cart.Lines.Count() == 0)
+			{
+				ModelState.AddModelError("", "Sorry, your cart is empty");
+			}
+			if (ModelState.IsValid)
+			{
+				modOrderProcessor.ProcessOrder(cart, shippingDetails);
+				cart.Clear();
+				return View("Completed");
+			}
+			else
+			{
+				return View(shippingDetails);
+			}
+		}
+
+		public ViewResult Checkout()
+		{
+			return View(new ShippingDetails());
+		}
+
+		public PartialViewResult Summary(Cart cart)
+		{
+			return PartialView(cart);
+		}
+
+		public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
 		{
 			Product product = modProductRepository.Products
 							.FirstOrDefault(x => x.ProductID == productId);
 
 			if(product!=null)
 			{
-				this.GetCart().AddItem(product, 1);
+				cart.AddItem(product, 1);
 			}
 
 			return RedirectToAction("Index", new { returnUrl = returnUrl});
 		}
 
-		public RedirectToRouteResult RemoveFromCart(int productId, string returnUrl)
+		public RedirectToRouteResult RemoveFromCart(Cart cart, int productId, string returnUrl)
 		{
 			Product product = modProductRepository.Products
 							.FirstOrDefault(x => x.ProductID == productId);
 			if (product != null)
 			{
-				this.GetCart().RemoveLine(product);
+				cart.RemoveLine(product);
 			}
 
 			return RedirectToAction("Index", new { returnUrl });
 		}
 
-		public ViewResult Index(string returnUrl)
+		public ViewResult Index(Cart cart, string returnUrl)
 		{
 			return View(new CartIndexViewModel
-				{ Cart = this.GetCart(), ReturnUrl = returnUrl});
+				{ Cart = cart, ReturnUrl = returnUrl});
 		}
 
 		#endregion
